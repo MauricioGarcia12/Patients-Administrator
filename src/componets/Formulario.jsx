@@ -14,9 +14,15 @@ const Forumulario = () => {
 
     //Function que se ejecuta cada que el usuario escribe en el input
 
-    const actualizarState = () =>{
-        console.log('escribiendo..');
-}
+    const actualizarState = e =>{
+        actualizarCita({
+            ...cita,
+            [e.target.name]:e.target.value
+        })
+    }
+
+    const {mascota,propietario,fecha,hora,sintomas}=cita;
+
     return (  
         <Fragment>
             <h2>Crear Cita</h2>
@@ -28,14 +34,17 @@ const Forumulario = () => {
                     className='u-full-width'
                     placeholder='Nombre Mascota'
                     onChange={actualizarState}
+                    value={mascota}
                 />
                 <label>Nombre de Dueño</label>
                 <input
                     type='text'
-                    name='propetario'
+                    name='propietario'
                     className='u-full-width'
                     placeholder='Nombre del dueño'
                     onChange={actualizarState}
+                    value={propietario}
+
 
                 />
                 <label>Fecha</label>
@@ -44,6 +53,8 @@ const Forumulario = () => {
                     name='fecha'
                     className='u-full-width'
                     onChange={actualizarState}
+                    value={fecha}
+
 
                 />
                 <label>Hora de alta</label>
@@ -52,6 +63,7 @@ const Forumulario = () => {
                     name='hora'
                     className='u-full-width'
                     onChange={actualizarState}
+                    value={hora}
 
                 />
                 <label>Sintomas</label>
@@ -59,6 +71,7 @@ const Forumulario = () => {
                 className='u-full-width'
                 name='sintomas'
                 onChange={actualizarState}
+                value={sintomas}
 
                 > </textarea>
                 <button
