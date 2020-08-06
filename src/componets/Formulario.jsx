@@ -1,8 +1,10 @@
 import React, {Fragment, useState} from 'react';
+import { v4 as uuid } from 'uuid';
 
 
 
-const Forumulario = () => {
+
+const Formulario = ({crearCita}) => {
         //CREAR STATE DE CITAS
     const [cita,actualizarCita] = useState({
         mascota:'',
@@ -34,10 +36,14 @@ const Forumulario = () => {
             actualizarError(true)
             return;
         }
+        //Eliminar mensaje previo
+        actualizarError(false);
 
         //Asignar ID
-
+        cita.id = uuid();
         //Crear Cita
+        crearCita(cita);
+
 
         //Reiniciar Form
     }
@@ -105,4 +111,4 @@ const Forumulario = () => {
     );
 }
  
-export default Forumulario;
+export default Formulario;
