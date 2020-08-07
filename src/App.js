@@ -1,6 +1,7 @@
 import React, {Fragment,useState,useEffect} from 'react';
 import Formulario from './componets/Formulario'
 import Cita from './componets/Cita';
+import PropTypes from 'prop-types'
 
 function App() {
   //CITAS EN LOCAL STORAGE
@@ -16,6 +17,8 @@ function App() {
   //useefect para realizar operaciones cuanod el state cambia
   //metiendo las citas al local storage cuando haya sino el arreglo es vacio
   useEffect(() => {
+    let citasIniciales =JSON.parse(localStorage.getItem('citas'));
+    
     if(citasIniciales){
       localStorage.setItem('citas',JSON.stringify(citas))
     }
@@ -66,6 +69,9 @@ function App() {
       </div>
     </Fragment>
   );
+}
+Formulario.propTypes = {
+  crearCita:PropTypes.func.isRequired
 }
 
 export default App;
