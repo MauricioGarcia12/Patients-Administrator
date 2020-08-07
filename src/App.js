@@ -1,6 +1,6 @@
 import React, {Fragment,useState} from 'react';
 import Formulario from './componets/Formulario'
-
+import Cita from './componets/Cita';
 
 function App() {
   //ARREGLO DE CITAS
@@ -22,7 +22,14 @@ function App() {
                 />
           </div>
           <div className='one-half column'>
-                2
+                <h2>Administrador de citas</h2>
+                {citas.map(cita =>(
+                <Cita
+                  key={cita.id}
+                  cita={cita}
+
+                />
+                ))}
           </div>
         </div>
 
